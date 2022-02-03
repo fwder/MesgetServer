@@ -155,7 +155,7 @@ public class ServerSocketStream {
                 outputStreamc.write(("ConnectionisClosed\n").getBytes(StandardCharsets.UTF_8));
                 outputStreamc.flush();
             }
-            //向Parent发送信息
+            //向Parent发送信息aa
             if (socketp != null && socketc != null && socketp.isConnected() && socketc.isConnected() && outputStreamp != null) {
                 outputStreamp.write(("ConnectionisClosed\n").getBytes(StandardCharsets.UTF_8));
                 outputStreamp.flush();
