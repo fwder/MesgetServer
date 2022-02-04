@@ -118,14 +118,21 @@ public class socketServer {
         }
     }
 
+    //切割字符串
     public static String stringMatch(String type, String s) {
-        List<String> results = new ArrayList<String>();
-        Pattern p = Pattern.compile("<" + type + ":([\\w/\\.]*)>");
-        Matcher m = p.matcher(s);
-        while (!m.hitEnd() && m.find()) {
-            results.add(m.group(1));
+        try {
+            List<String> results = new ArrayList<String>();
+            Pattern p = Pattern.compile("<" + type + ":(.*?)>");
+            Matcher m = p.matcher(s);
+            while (!m.hitEnd() && m.find()) {
+                results.add(m.group(1));
+            }
+            System.out.println("stringMatch: 切割结果：" + results.get(0));
+            return results.get(0);
+        } catch (Exception e) {
+            System.out.println("stringMatch: 字符串切割错误！");
+            return "";
         }
-        return results.get(0);
     }
 
     public static boolean isChildConnectionExist(Socket spp) {
